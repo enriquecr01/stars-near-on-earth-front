@@ -36,8 +36,12 @@ export default function StarCarrousel({ starImages }) {
     <swiper-container direction="vertical" mousewheel="true" keyboard="true" ref={swiperRef}>
       {starImages.map((image, i) => (
         <swiper-slide key={i}>
-          <img src={`${image.url}`} alt="image.description" />
-          <h4>{image.description}</h4>
+          <div className="img-description">
+            <img className="star-image" src={`${image.url}`} alt={`${image.description}`} />
+            <div >
+              <h6>{image.description}</h6>
+            </div>
+          </div>
         </swiper-slide>
       ))}
       {/* <swiper-slide>Slide 1</swiper-slide>
