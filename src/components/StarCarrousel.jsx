@@ -5,7 +5,7 @@ import { register } from "swiper/element/bundle";
 import "swiper/css";
 import "../styles/star.css"
 
-export default function StarCarrousel() {
+export default function StarCarrousel({ starImages }) {
   const swiperRef = useRef(null);
 
   useEffect(() => {
@@ -34,13 +34,19 @@ export default function StarCarrousel() {
   return (
     <div className="star-carrousel">
     <swiper-container direction="vertical" mousewheel="true" keyboard="true" ref={swiperRef}>
-      <swiper-slide>Slide 1</swiper-slide>
+      {starImages.map((image, i) => (
+        <swiper-slide key={i}>
+          <img src={`${image.url}`} alt="image.description" />
+          <h4>{image.description}</h4>
+        </swiper-slide>
+      ))}
+      {/* <swiper-slide>Slide 1</swiper-slide>
       <swiper-slide>
         qlos
       </swiper-slide>
       <swiper-slide>Slide 3</swiper-slide>
       <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
+      <swiper-slide>Slide 5</swiper-slide> */}
     </swiper-container>
     </div>
   );

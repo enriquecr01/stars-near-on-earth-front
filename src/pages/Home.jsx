@@ -1,14 +1,11 @@
-import "../styles/home.css"
 import Swipe from "../components/Swipe";
+import "../styles/home.css"
 
 export default function Home() {
   return (
     <div>
       <div id="title">
-      <Swipe />
-        {/* <span>Star Near on Earth</span>
-        <br></br>
-        <span>Check the nearest stars on Earth</span> */}
+        <Swipe />
       </div>
       <div id="stars"></div>
       <div id="stars2"></div>
