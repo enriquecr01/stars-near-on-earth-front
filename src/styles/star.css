@@ -19,3 +19,12 @@
   /* margin: 0px 300px; */
   max-width: 300px;
 }
+
+.atropos {
+  margin: auto;
+  max-width: max-content;
+}
+
+.atropos-shadow {
+  background: #8d7f94 !important;
+}

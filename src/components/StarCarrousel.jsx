@@ -45,8 +45,9 @@ export default function StarCarrousel({ starImages }) {
         {starImages.map((image, i) => (
           <swiper-slide key={i}>
             <div className="img-description">
-              <Atropos className="my-atropos">
+              <Atropos shadow={true} highlight={true} className="atropos" key={i}>
                 <img
+                  data-atropos-offset="-3"
                   className="star-image"
                   src={`${image.url}`}
                   alt={`${image.description}`}
