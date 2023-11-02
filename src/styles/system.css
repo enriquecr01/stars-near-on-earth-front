@@ -1,4 +1,16 @@
 .system-label {
-    position: relative;
-    z-index: 9;
+  position: relative;
+  z-index: 9;
+}
+
+@media only screen and (max-width: 700px) {
+  .system-label {
+    font-size: 0.67em;
+  }
+}
+
+@media only screen and (max-width: 500px) and (orientation: landscape) {
+  .system-label {
+    font-size: 0.67em;
+  }
 }

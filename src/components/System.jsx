@@ -15,7 +15,7 @@ export default function System({ system }) {
       <StarCarrousel starImages={starImages} />
       <div className="system-label">
         <label htmlFor="systemName">
-          <b>System:</b> {system.systemName}{" "}
+          <b>System:</b> {system.systemName}
         </label>
         <br />
         <label htmlFor="stars">
@@ -23,7 +23,7 @@ export default function System({ system }) {
         </label>
         <br />
         <label htmlFor="yearLightDistance">
-          <b>Year Light Distance:</b> {starsLightYear}{" "}
+          <b>Year Light Distance:</b> {starsLightYear}
         </label>
       </div>
     </div>
