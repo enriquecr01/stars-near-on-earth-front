@@ -582,11 +582,11 @@ body {
   padding-left: 10px; */
   margin: 30px;
 }
-#title span {
+/* #title span {
   background: -webkit-linear-gradient(white, #38495a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 @keyframes animStar {
   from {

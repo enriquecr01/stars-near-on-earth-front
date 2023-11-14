@@ -16,10 +16,25 @@
   -moz-box-shadow: 0px 0px 5px 2px rgba(64, 60, 66, 1);
 }
 
-.description {
+.show-more {
+  font-size: 0.5em;
+  display: none;
+  text-decoration: underline;
+  color: #fff;
+  -webkit-text-fill-color: inherit;
+}
+
+.description-150 {
   font-size: 0.67em;
   max-width: 80%;
   margin: auto;
+}
+
+.description-100 {
+  font-size: 0.58em;
+  max-width: 80%;
+  margin: auto;
+  display: none;
 }
 
 .atropos {
@@ -68,10 +83,45 @@
 
 @media only screen and (max-width: 500px) {
   .star-image {
-    max-height: 300px;
+    max-height: 290px;
   }
 
   .star-carrousel {
     height: 70vh;
+  }
+}
+
+@media only screen and (max-width: 800px) and (max-height: 600px) {
+  .star-carrousel {
+    height: 70vh;
+  }
+}
+
+@media only screen and (max-height: 680px) {
+  .description-150 {
+    display: none;
+  }
+
+  .description-100 {
+    display: block;
+  }
+}
+
+@media only screen and (max-height: 560px) {
+  .description-100 {
+    display: none;
+  }
+  .show-more {
+    display: block;
+  }
+}
+
+@media only screen and (max-height: 440px) {
+  .show-more {
+    display: block;
+  }
+
+  .star-carrousel {
+    height: 80vh;
   }
 }

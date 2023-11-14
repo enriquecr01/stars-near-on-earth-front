@@ -8,43 +8,14 @@ import "swiper/css";
 import "../styles/star.css";
 import "atropos/css";
 
-export default function StarCarrousel({ starImages }) {
-  const swiperRef = useRef(null);
-
+export default function StarCarrousel({ starImages, system }) {
   const [isOpen, setOpen] = useState(false);
   const [currentDescription, setDescription] = useState(false);
 
-  useEffect(() => {
-    // Register Swiper web component
-    register();
-
-    // Object with parameters
-    const params = {
-      slidesPerView: 1,
-      autoHeight: true,
-      mousewheel: true,
-      //   breakpoints: {
-      //     768: {
-      //       slidesPerView: 4,
-      //     },
-      //   },
-    };
-
-    // Assign it to swiper element
-    Object.assign(swiperRef.current, params);
-
-    // initialize swiper
-    swiperRef.current.initialize();
-  }, []);
 
   return (
     <div className="star-carrousel">
-      <swiper-container
-        direction="vertical"
-        mousewheel="true"
-        keyboard="true"
-        ref={swiperRef}
-      >
+      <swiper-container direction="vertical" mousewheel="true" keyboard="true">
         {starImages.map((image, i) => (
           <swiper-slide key={i}>
             <div className="img-description">
@@ -59,11 +30,43 @@ export default function StarCarrousel({ starImages }) {
                   className="star-image"
                   src={`${image.url}`}
                   alt={`${image.description}`}
+                  onClick={() => {
+                    setOpen(true);
+                    setDescription(image.description);
+                  }}
                 />
               </Atropos>
-              <div className="description">
-                {image.description.substring(0, 200)}
-                {image.description.length > 200 ? (
+              <div className="show-more">
+                  <span
+                    onClick={() => {
+                      setOpen(true);
+                      setDescription(image.description);
+                    }}
+                  >
+                    More...
+                  </span>
+                </div>
+
+              <div className="description-100">
+                {image.description.substring(0, 100)}
+                {image.description.length > 100 ? (
+                  <span
+                    onClick={() => {
+                      setOpen(true);
+                      setDescription(image.description);
+                    }}
+                  >
+                    →
+                  </span>
+                ) : (
+                  ""
+                )}
+                </div>
+
+              <div className="description-150">
+
+                {image.description.substring(0, 150)}
+                {image.description.length > 150 ? (
                   <span
                     onClick={() => {
                       setOpen(true);
@@ -79,22 +82,34 @@ export default function StarCarrousel({ starImages }) {
             </div>
           </swiper-slide>
         ))}
-        {/* <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>
-        qlos
-      </swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide> */}
 
         <Sheet isOpen={isOpen} onClose={() => setOpen(false)}>
           <Sheet.Container>
             <Sheet.Header>
-              <span className="sheet-header">
-                Full Description
-              </span>
+              <span className="sheet-header">Full Description</span>
             </Sheet.Header>
-            <Sheet.Content>{currentDescription}</Sheet.Content>
+            <Sheet.Content>
+              <div>
+                <label htmlFor="systemName">
+                  <b>System:</b> {system.systemName}
+                </label>
+                <br />
+                <label htmlFor="stars">
+                  <b>Stars:</b> {system.starsNames}
+                </label>
+                <br />
+                <label htmlFor="yearLightDistance">
+                  <b>Year Light Distance:</b> {system.starsLightYear}
+                </label>
+                <hr></hr>
+              </div>
+            <Sheet.Scroller draggableAt="both">
+              {/* Some content here that makes the sheet content scrollable */}
+              <div>
+                {currentDescription}
+              </div>
+            </Sheet.Scroller>
+            </Sheet.Content>
           </Sheet.Container>
           <Sheet.Backdrop />
         </Sheet>

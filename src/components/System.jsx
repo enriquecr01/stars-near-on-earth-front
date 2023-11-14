@@ -10,9 +10,15 @@ export default function System({ system }) {
     starsLightYear += star.distance + ", ";
   });
 
+  let systemFormatted = {
+    systemName: system.systemName,
+    starsNames: starsNames,
+    starsLightYear: starsLightYear
+  }
+
   return (
     <div>
-      <StarCarrousel starImages={starImages} />
+      <StarCarrousel starImages={starImages} system={systemFormatted} />
       <div className="system-label">
         <label htmlFor="systemName">
           <b>System:</b> {system.systemName}
