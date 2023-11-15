@@ -28,6 +28,12 @@
   }
 }
 
+@media only screen and (max-width: 370px) and (max-height: 680px) {
+  .system-label {
+    font-size: 0.55em;
+  }
+}
+
 @media only screen and (max-height: 570px) {
   .system-label {
     font-size: 0.5em;

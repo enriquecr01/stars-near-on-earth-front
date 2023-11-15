@@ -51,12 +51,13 @@ export default function StarCarrousel({ starImages, system }) {
                 {image.description.substring(0, 100)}
                 {image.description.length > 100 ? (
                   <span
+                    style={{ textDecoration: "underline" }}
                     onClick={() => {
                       setOpen(true);
                       setDescription(image.description);
                     }}
                   >
-                    →
+                    More...
                   </span>
                 ) : (
                   ""
@@ -68,12 +69,13 @@ export default function StarCarrousel({ starImages, system }) {
                 {image.description.substring(0, 150)}
                 {image.description.length > 150 ? (
                   <span
+                    style={{ textDecoration: "underline" }}
                     onClick={() => {
                       setOpen(true);
                       setDescription(image.description);
                     }}
                   >
-                    →
+                    More...
                   </span>
                 ) : (
                   ""
