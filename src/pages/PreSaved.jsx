@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import Swipe from "../components/Swipe";
 import "../styles/home.css"
+const systems = require('../stars.json'); 
+
 
 export default function PreSaved() {
 
@@ -11,8 +13,7 @@ export default function PreSaved() {
   return (
     <div>
       <div id="title">
-        Pre Saved
-        <Swipe />
+        <Swipe systems={systems} />
       </div>
       <div id="stars"></div>
       <div id="stars2"></div>

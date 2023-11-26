@@ -7,7 +7,7 @@ const systems = require('../stars.json');
 import "swiper/css";
 import "../styles/swipe.css";
 
-export default function Swipe() {
+export default function Swipe({ systems }) {
   
   console.log(systems)
 
@@ -20,12 +20,6 @@ export default function Swipe() {
     // Object with parameters
     const params = {
       slidesPerView: 1,
-
-      //   breakpoints: {
-      //     768: {
-      //       slidesPerView: 4,
-      //     },
-      //   },
     };
 
     // Assign it to swiper element
@@ -42,15 +36,6 @@ export default function Swipe() {
           <System system={system} />
         </swiper-slide>
       ))}
-      {/* <swiper-slide>
-        <System />
-      </swiper-slide> */}
-      {/* <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
-      <swiper-slide>Slide 6</swiper-slide>
-      <swiper-slide>Slide 7</swiper-slide>
-      <swiper-slide>Slide 8</swiper-slide> */}
     </swiper-container>
   );
 }
