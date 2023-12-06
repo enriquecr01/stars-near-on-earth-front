@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="" element={<Main />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Main />} />
       <Route path="/pre-saved" element={<PreSaved />} />
       <Route path="/scrap-stars" element={<ScrapStars />} />
     </Routes>
