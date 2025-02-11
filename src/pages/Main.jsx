@@ -19,6 +19,7 @@ export default function Home() {
             className="link-class"
             target="_blank"
             href="https://enriquechavezr.com/"
+            rel="noreferrer"
           >
             Enrique Chavez Romero
           </a>
@@ -29,6 +30,7 @@ export default function Home() {
             className="link-class"
             target="_blank"
             href="https://en.wikipedia.org/wiki/List_of_nearest_stars_and_brown_dwarfs"
+            rel="noreferrer"
           >
             this page of Wikipedia
           </a>
