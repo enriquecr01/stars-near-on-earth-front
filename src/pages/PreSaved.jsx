@@ -1,14 +1,12 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 import Swipe from "../components/Swipe";
-import "../styles/home.css"
-const systems = require('../stars.json'); 
-
+import "../styles/home.css";
+import systems from "../stars.json";
 
 export default function PreSaved() {
-
   useEffect(() => {
-    document.title = "Stars Near Earth"
-  })
+    document.title = "Stars Near Earth";
+  });
 
   return (
     <div>
