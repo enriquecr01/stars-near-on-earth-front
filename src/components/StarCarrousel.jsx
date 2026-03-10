@@ -8,35 +8,36 @@ import "swiper/css";
 import "../styles/star.css";
 import "atropos/css";
 
-export default function StarCarrousel({ starImages, system }) {
+export default function StarCarrousel({ starImages = [], system }) {
   const [isOpen, setOpen] = useState(false);
   const [currentDescription, setDescription] = useState(false);
-
 
   return (
     <div className="star-carrousel">
       <swiper-container direction="vertical" mousewheel="true" keyboard="true">
-        {starImages.map((image, i) => (
-          <swiper-slide key={i}>
-            <div className="img-description">
-              <Atropos
-                shadow={true}
-                highlight={true}
-                className="atropos"
-                key={i}
-              >
-                <img
-                  data-atropos-offset="-3"
-                  className="star-image"
-                  src={`${image.url}`}
-                  alt={`${image.description}`}
-                  onClick={() => {
-                    setOpen(true);
-                    setDescription(image.description);
-                  }}
-                />
-              </Atropos>
-              <div className="show-more">
+        {(starImages || []).map((image, i) => {
+
+          return (
+            <swiper-slide key={i}>
+              <div className="img-description">
+                <Atropos
+                  shadow={true}
+                  highlight={true}
+                  className="atropos"
+                  key={i}
+                >
+                  <img
+                    data-atropos-offset="-3"
+                    className="star-image"
+                    src={`${image.url}`}
+                    alt={`${image.description}`}
+                    onClick={() => {
+                      setOpen(true);
+                      setDescription(image.description);
+                    }}
+                  />
+                </Atropos>
+                <div className="show-more">
                   <span
                     onClick={() => {
                       setOpen(true);
@@ -47,43 +48,43 @@ export default function StarCarrousel({ starImages, system }) {
                   </span>
                 </div>
 
-              <div className="description-100">
-                {image.description.substring(0, 100)}
-                {image.description.length > 100 ? (
-                  <span
-                    style={{ textDecoration: "underline" }}
-                    onClick={() => {
-                      setOpen(true);
-                      setDescription(image.description);
-                    }}
-                  >
-                    More...
-                  </span>
-                ) : (
-                  ""
-                )}
+                <div className="description-100">
+                  {image.description.substring(0, 100)}
+                  {image.description.length > 100 ? (
+                    <span
+                      style={{ textDecoration: "underline" }}
+                      onClick={() => {
+                        setOpen(true);
+                        setDescription(image.description);
+                      }}
+                    >
+                      More...
+                    </span>
+                  ) : (
+                    ""
+                  )}
                 </div>
 
-              <div className="description-150">
-
-                {image.description.substring(0, 150)}
-                {image.description.length > 150 ? (
-                  <span
-                    style={{ textDecoration: "underline" }}
-                    onClick={() => {
-                      setOpen(true);
-                      setDescription(image.description);
-                    }}
-                  >
-                    More...
-                  </span>
-                ) : (
-                  ""
-                )}
+                <div className="description-150">
+                  {image.description.substring(0, 150)}
+                  {image.description.length > 150 ? (
+                    <span
+                      style={{ textDecoration: "underline" }}
+                      onClick={() => {
+                        setOpen(true);
+                        setDescription(image.description);
+                      }}
+                    >
+                      More...
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
-            </div>
-          </swiper-slide>
-        ))}
+            </swiper-slide>
+          );
+        })}
 
         <Sheet isOpen={isOpen} onClose={() => setOpen(false)}>
           <Sheet.Container>
@@ -105,12 +106,10 @@ export default function StarCarrousel({ starImages, system }) {
                 </label>
                 <hr></hr>
               </div>
-            <Sheet.Scroller draggableAt="both">
-              {/* Some content here that makes the sheet content scrollable */}
-              <div>
-                {currentDescription}
-              </div>
-            </Sheet.Scroller>
+              <Sheet.Scroller draggableAt="both">
+                {/* Some content here that makes the sheet content scrollable */}
+                <div>{currentDescription}</div>
+              </Sheet.Scroller>
             </Sheet.Content>
           </Sheet.Container>
           <Sheet.Backdrop />

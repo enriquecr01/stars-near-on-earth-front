@@ -2,10 +2,12 @@ import StarCarrousel from "./StarCarrousel";
 import "../styles/system.css";
 
 export default function System({ system }) {
+  const stars = system?.stars ?? [];
   let starsNames = "";
   let starsLightYear = "";
-  let starImages = system.stars[0].images;
-  system.stars.map((star) => {
+  let starImages = stars[0]?.images ?? [];
+
+  stars.forEach((star) => {
     starsNames += star.name + ", ";
     starsLightYear += star.distance + ", ";
   });
@@ -13,8 +15,8 @@ export default function System({ system }) {
   let systemFormatted = {
     systemName: system.systemName,
     starsNames: starsNames,
-    starsLightYear: starsLightYear
-  }
+    starsLightYear: starsLightYear,
+  };
 
   return (
     <div>

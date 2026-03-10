@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Swipe from "../components/Swipe";
 import "../styles/home.css";
-import RandomLoader  from "../components/RandomLoader";
+import RandomLoader from "../components/RandomLoader";
 
 export default function ScrapStars() {
   const [loading, setLoading] = useState(false);
   const [systems, setSystems] = useState([]);
+
+  const URL = "http://127.0.0.1:5000/getStars";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,17 +20,16 @@ export default function ScrapStars() {
         return;
       }
 
-
       try {
         // Marcar que la solicitud está en curso
         setLoading(true);
 
         // Realizar la solicitud con fetch
-        const response = await fetch(`https://stars-near-on-earth.fly.dev/getStars`);
+        const response = await fetch(`${URL}`);
 
         // Verificar si la solicitud fue exitosa
         if (!response.ok) {
-          throw new Error('Error en la solicitud');
+          throw new Error("Error en la solicitud");
         }
 
         // Convertir la respuesta a formato JSON
@@ -45,7 +46,6 @@ export default function ScrapStars() {
       }
     };
 
-
     document.title = "Stars Near Earth";
     fetchData();
   }, []);
@@ -53,8 +53,8 @@ export default function ScrapStars() {
   return (
     <div>
       <div id="title">
-        { loading && ( <RandomLoader /> ) }  
-        { !loading && ( <Swipe systems={systems} /> ) }  
+        {loading && <RandomLoader />}
+        {!loading && <Swipe systems={systems} />}
       </div>
       <div id="stars"></div>
       <div id="stars2"></div>
