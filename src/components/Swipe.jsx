@@ -6,7 +6,7 @@ import System from "./System";
 import "swiper/css";
 import "../styles/swipe.css";
 
-export default function Swipe({ systems }) {
+export default function Swipe({ systems = [] }) {
   const swiperRef = useRef(null);
 
   useEffect(() => {
@@ -18,16 +18,20 @@ export default function Swipe({ systems }) {
       slidesPerView: 1,
     };
 
-    // Assign it to swiper element
+    if (!swiperRef.current) return;
     Object.assign(swiperRef.current, params);
-
-    // initialize swiper
     swiperRef.current.initialize();
   }, []);
 
+  const systemsArray = Array.isArray(systems) ? systems : [];
+
+  if (!systemsArray.length) {
+    return <div className="swipe-empty">No systems available.</div>;
+  }
+
   return (
     <swiper-container keyboard="true" ref={swiperRef}>
-      {systems.map((system, i) => (
+      {systemsArray.map((system, i) => (
         <swiper-slide key={i}>
           <System system={system} />
         </swiper-slide>
