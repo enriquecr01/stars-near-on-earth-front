@@ -1,6 +1,6 @@
 {
   "name": "stars-near-on-earth",
-  "homepage": "https://enriquechavezr.com/proyectos/stars-near-earth",
+  "homepage": "https://stars-near-earth.enriquechavezr.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build --base=/proyectos/stars-near-earth",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "eslintConfig": {
