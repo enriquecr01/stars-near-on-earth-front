@@ -7,7 +7,7 @@ export default function ScrapStars() {
   const [loading, setLoading] = useState(false);
   const [systems, setSystems] = useState([]);
 
-  const URL = "http://127.0.0.1:5000/getStars";
+  const URL = "https://stars-near-earth-api.enriquechavezr.com/getStars";
 
   useEffect(() => {
     const fetchData = async () => {
